@@ -1,0 +1,58 @@
+<canvas id="canvas" style="display:block;margin:75px auto;border:#aaa solid 1px; width: 500px;"></canvas>
+<canvas id="canvas1" style="display:block;margin:75px auto;border:#aaa solid 1px; width: 500px;"></canvas>
+
+<script>
+    const colCount = 6;
+
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    if (context) {
+        context.strokeStyle = "#005588";
+
+        for (i = 1; i <= colCount; i++) {
+            context.beginPath();
+            context.arc(50 * i - 25, 25, 20, 0, 2 * i / colCount * Math.PI)
+            context.stroke();
+        }
+
+
+        for (i = 1; i <= colCount; i++) {
+            context.beginPath();
+            context.arc(50 * i - 25, 75, 20, 0, 2 * i / colCount * Math.PI, true)
+            context.stroke();
+        }
+
+        for (i = 1; i <= colCount; i++) {
+            context.beginPath();
+            context.arc(50 * i - 25, 125, 20, 0, 2 * i / colCount * Math.PI, true)
+            context.closePath();
+            context.stroke();
+        }
+    }
+
+    var canvas1 = document.getElementById("canvas1");
+    var context1 = canvas1.getContext("2d");
+    if (context1) {
+        context1.strokeStyle = "#005588";
+        context1.fillStyle = "#005588";
+        for (i = 1; i <= colCount; i++) {
+            context1.beginPath();
+            context1.arc(50 * i - 25, 25, 20, 0, 2 * i / colCount * Math.PI)
+            context1.fill();
+        }
+
+
+        for (i = 1; i <= colCount; i++) {
+            context1.beginPath();
+            context1.arc(50 * i - 25, 75, 20, 0, 2 * i / colCount * Math.PI, true)
+            context1.fill();
+        }
+
+        for (i = 1; i <= colCount; i++) {
+            context1.beginPath();
+            context1.arc(50 * i - 25, 125, 20, 0, 2 * i / colCount * Math.PI, true)
+            context1.closePath();
+            context1.fill();
+        }
+    }
+</script>
