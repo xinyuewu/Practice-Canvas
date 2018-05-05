@@ -1,0 +1,40 @@
+<canvas id="canvas" style="border:1px solid black; display:block; margin: 100px auto;">
+    当前浏览器不支持Canvas，请更换浏览器后再试
+</canvas>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    canvas.width = 500;
+    canvas.height = 500;
+
+    var context = canvas.getContext('2d');
+
+    var data = [{ color: "#67becf", vertexes: [{ x: 0, y: 0 }, { x: 250, y: 250 }, { x: 0, y: 500 }] },
+    { color: "#caff67", vertexes: [{ x: 0, y: 0 }, { x: 250, y: 250 }, { x: 500, y: 0 }] },
+    { color: "#f9f51a", vertexes: [{ x: 250, y: 250 }, { x: 375, y: 125 }, { x: 375, y: 375 }] },
+    { color: "#ef3d61", vertexes: [{ x: 375, y: 125 }, { x: 375, y: 375 }, { x: 500, y: 250 }, { x: 500, y: 0 }] },
+    { color: "#fa8ecc", vertexes: [{ x: 0, y: 500 }, { x: 125, y: 375 }, { x: 250, y: 500 }] },
+    { color: "#a594c0", vertexes: [{ x: 125, y: 375 }, { x: 250, y: 500 }, { x: 375, y: 375 }, { x: 250, y: 250 }] },
+    { color: "#f6ca29", vertexes: [{ x: 250, y: 500 }, { x: 500, y: 500 }, { x: 500, y: 250 }] }]
+
+    if (context) {
+
+        context.lineWidth = 1;
+        context.strokeStyle = "black";
+
+        data.forEach(item => {
+
+            context.beginPath();
+            context.moveTo(item.vertexes[0].x, item.vertexes[0].y);
+            for (var i = 1; i < item.vertexes.length; i++) {
+                context.lineTo(item.vertexes[i].x, item.vertexes[i].y);
+            }
+            context.closePath();
+            context.stroke();
+
+            context.fillStyle = item.color;
+            context.fill();
+        })
+    }
+
+</script>
