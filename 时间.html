@@ -152,20 +152,26 @@
     var context = canvas.getContext("2d");
     if (context) {
 
-        var currentTime = new Date();
-        var hours = currentTime.getHours();
-        var minutes = currentTime.getMinutes();
-        var seconds = currentTime.getSeconds();
+        window.setInterval(function () {
+            
+            context.clearRect(marginLeft, marginTop, 107 *(radius + 1), 20 *(radius + 1));
 
-        context.fillStyle = "#005588";
-        draw(marginLeft, marginTop, Math.floor(hours / 10)); 
-        draw(marginLeft+15 *(radius + 1), marginTop, Math.floor(hours % 10));
-        draw(marginLeft+30 *(radius + 1), marginTop, 10); // :
-        draw(marginLeft+39*(radius + 1), marginTop, Math.floor(minutes / 10));
-        draw(marginLeft+54*(radius + 1), marginTop, Math.floor(minutes % 10));
-        draw(marginLeft+69*(radius + 1), marginTop, 10); // :
-        draw(marginLeft+78*(radius + 1), marginTop, Math.floor(seconds / 10));
-        draw(marginLeft+93*(radius + 1), marginTop, Math.floor(seconds % 10));
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes(); 
+            var seconds = currentTime.getSeconds();
+
+            context.fillStyle = "#005588";
+            draw(marginLeft, marginTop, Math.floor(hours / 10));
+            draw(marginLeft + 15 * (radius + 1), marginTop, Math.floor(hours % 10));
+            draw(marginLeft + 30 * (radius + 1), marginTop, 10); // :
+            draw(marginLeft + 39 * (radius + 1), marginTop, Math.floor(minutes / 10));
+            draw(marginLeft + 54 * (radius + 1), marginTop, Math.floor(minutes % 10));
+            draw(marginLeft + 69 * (radius + 1), marginTop, 10); // :
+            draw(marginLeft + 78 * (radius + 1), marginTop, Math.floor(seconds / 10));
+            draw(marginLeft + 93 * (radius + 1), marginTop, Math.floor(seconds % 10));
+
+        }, 1000);
     }
 
     function draw(startX, startY, num) {
